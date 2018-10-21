@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'zt^mt=w*%0g7^-6_a$lq%c-uofa93m_huoi-2a%@1)v4-$b(=!'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = True  #shwos error to developer if any id debug='True'
 
 ALLOWED_HOSTS = []
 
@@ -31,13 +31,15 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'pages.apps.PagesConfig',  #this line is added to default file
+    #'pages.apps.PagesConfig',
+    'post.apps.PostConfig',  #this line is added to default file this "PagesConfig" present in appps.py and apps is present in pages so used here.
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    #'django.contrib.staticfiles',#written
 ]
 
 MIDDLEWARE = [
@@ -55,7 +57,7 @@ ROOT_URLCONF = 'test_project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],#'os.path.join(BASE_DIR, 'templates')' is added to have path to template to join it to root where python.exe exist
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -76,7 +78,7 @@ WSGI_APPLICATION = 'test_project.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
+        'ENGINE': 'django.db.backends.sqlite3',        #sqlite3 is by default database
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
@@ -119,3 +121,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
+
+# Add these new lines
+STATICFILES_DIRS =(
+   os.path.join(BASE_DIR, 'static'),
+)
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')

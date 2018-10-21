@@ -18,5 +18,7 @@ from django.urls import path, include   #include is added to 'from django.urls i
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',include('pages.urls'))
+    #path('',include('pages.urls'))
+    path('',include('post.urls'))
 ]
+
